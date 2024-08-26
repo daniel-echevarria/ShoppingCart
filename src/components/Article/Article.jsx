@@ -13,12 +13,25 @@ const Article = ({ id }) => {
     setDescription(jsonRes.description);
   };
 
+  const handleChange = (e) => {
+    const inputValue = e.target.value;
+    setNum(inputValue);
+    console.log(inputValue);
+  };
   getArticleInfos(id);
+
   return (
     <div className="card">
       <img src={imageUrl} alt="" />
       <p className="desc">{description}</p>
-      <input type="num" value={num} />
+      <input
+        type="number"
+        min={0}
+        max={99}
+        value={num}
+        onChange={handleChange}
+      />
+      <button>Add To Cart 🛒</button>
     </div>
   );
 };
