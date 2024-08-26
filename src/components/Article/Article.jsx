@@ -38,16 +38,14 @@ const Article = ({ id }) => {
       </div>
       <div className="cart">
         <p> {price} $ </p>
-        <div className="quantity">
-          <span>Quantity</span>
-          <input
-            type="number"
-            min={0}
-            max={99}
-            value={num}
-            onChange={handleChange}
-          />
-        </div>
+        <p>x</p>
+        <input
+          type="number"
+          min={0}
+          max={99}
+          value={num}
+          onChange={handleChange}
+        />
         <button onClick={handleCartChange}>Add To Cart 🛒</button>
       </div>
     </div>

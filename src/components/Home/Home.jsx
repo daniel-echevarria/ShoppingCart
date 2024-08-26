@@ -4,7 +4,11 @@ const Home = () => {
   return (
     <>
       <h1>Home</h1>
-      <p>Yes one more shop, what can I say ?</p>
+      <p className="home-description">
+        Wanna fake buy some fake stuff ? <br></br>
+        You are in the right place! <br></br>
+        just click the shop button above ⬆
+      </p>
     </>
   );
 };
