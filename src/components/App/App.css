@@ -3,17 +3,24 @@
   grid-template-columns: 220px 4fr;
   grid-template-rows: 180px 1fr 100px;
   grid-template-areas:
-    ". header"
-    "nav main"
-    "nav footer";
+    "header header"
+    "main main"
+    "footer footer";
+}
+
+.article-count {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 header {
   grid-area: header;
+  padding: 50px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  background-color: blue;
 }
 
 main {
@@ -23,9 +30,21 @@ main {
 
 nav {
   grid-area: nav;
-  background-color: aqua;
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
-nav button {
-  width: 100%;
+nav a {
+  display: flex;
+  justify-content: center;
+  font-size: large;
+  padding: 20px;
+  border: 0.5px solid black;
+  border-radius: 10px;
+  min-width: 100px;
+}
+
+nav a:hover {
+  background-color: blue;
 }

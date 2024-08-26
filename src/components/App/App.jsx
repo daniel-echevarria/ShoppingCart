@@ -1,18 +1,24 @@
 import { useState } from "react";
 import "./App.css";
 import { Link, Outlet } from "react-router-dom";
-import Shop from "../Shop/Shop";
 
 function App() {
+  const [articleCount, setArticleCount] = useState(0);
+
   return (
     <>
       <header>
         <h1>Heracles</h1>
+        <nav>
+          <Link to={"home"}>Home</Link>
+          <Link to={"shop"}>Shop</Link>
+          <div className="article-count">
+            <span>Articles in your cart</span>
+            <span>{articleCount}</span>
+          </div>
+          <Link to={"cart"}>Go To Cart</Link>
+        </nav>
       </header>
-      <nav>
-        <Link to={"shop"}>Shop</Link>
-        <Link to={"home"}>Home</Link>
-      </nav>
       <main>
         <Outlet />
       </main>
