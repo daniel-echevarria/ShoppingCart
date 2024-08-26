@@ -1,10 +1,14 @@
 import Article from "../Article/Article";
+import "./Shop.css";
+
+const articleIds = [1, 2, 3, 4, 5];
 
 const Shop = () => {
+  const articleList = articleIds.map((id) => <Article key={id} id={id} />);
   return (
     <>
-      <h1>Shop</h1>
-      <Article id={1} />
+      <h2>Shop</h2>
+      <div className="article-list">{articleList}</div>
     </>
   );
 };

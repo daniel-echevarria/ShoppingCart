@@ -12,11 +12,11 @@ function App() {
         <nav>
           <Link to={"home"}>Home</Link>
           <Link to={"shop"}>Shop</Link>
+          <Link to={"cart"}>Go To Cart</Link>
           <div className="article-count">
             <span>Articles in your cart</span>
             <span>{articleCount}</span>
           </div>
-          <Link to={"cart"}>Go To Cart</Link>
         </nav>
       </header>
       <main>

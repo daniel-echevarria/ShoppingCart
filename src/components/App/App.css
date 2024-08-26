@@ -25,7 +25,12 @@ header {
 
 main {
   grid-area: main;
-  background-color: pink;
+  /* background-color: pink; */
+}
+
+h2 {
+  text-align: center;
+  width: 100%;
 }
 
 nav {
