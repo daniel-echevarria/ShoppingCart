@@ -1,19 +1,22 @@
 import { useEffect, useState } from "react";
 import "./Article.css";
-import { useOutletContext } from "react-router-dom";
+import { json, useOutletContext } from "react-router-dom";
 
 const Article = ({ id }) => {
   const [imageUrl, setImageUrl] = useState("");
-  const [description, setDescription] = useState("");
+  const [title, setTitle] = useState("");
   const [num, setNum] = useState(1);
+  const [price, setPrice] = useState("");
   const myFunk = useOutletContext();
 
   useEffect(() => {
     const getArticleInfos = async (id) => {
       const response = await fetch(`https://fakestoreapi.com/products/${id}`);
       const jsonRes = await response.json();
+      console.log(jsonRes);
       setImageUrl(jsonRes.image);
-      setDescription(jsonRes.description);
+      setTitle(jsonRes.title);
+      setPrice(jsonRes.price);
     };
     getArticleInfos(id), [id];
   });
@@ -29,16 +32,24 @@ const Article = ({ id }) => {
 
   return (
     <div className="card">
-      <img src={imageUrl} alt="" />
-      <p className="desc">{description}</p>
-      <input
-        type="number"
-        min={0}
-        max={99}
-        value={num}
-        onChange={handleChange}
-      />
-      <button onClick={handleCartChange}>Add To Cart 🛒</button>
+      <div className="item">
+        <img src={imageUrl} alt="" />
+        <p className="title">{title}</p>
+      </div>
+      <div className="cart">
+        <p> {price} $ </p>
+        <div className="quantity">
+          <span>Quantity</span>
+          <input
+            type="number"
+            min={0}
+            max={99}
+            value={num}
+            onChange={handleChange}
+          />
+        </div>
+        <button onClick={handleCartChange}>Add To Cart 🛒</button>
+      </div>
     </div>
   );
 };

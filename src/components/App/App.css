@@ -45,11 +45,11 @@ nav a {
   justify-content: center;
   font-size: large;
   padding: 20px;
-  border: 0.5px solid black;
+  border: 0.5px solid white;
   border-radius: 10px;
   min-width: 100px;
 }
 
 nav a:hover {
-  background-color: blue;
+  /* background-color: blue; */
 }
