@@ -1,0 +1,31 @@
+#root {
+  display: grid;
+  grid-template-columns: 220px 4fr;
+  grid-template-rows: 180px 1fr 100px;
+  grid-template-areas:
+    ". header"
+    "nav main"
+    "nav footer";
+}
+
+header {
+  grid-area: header;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: blue;
+}
+
+main {
+  grid-area: main;
+  background-color: pink;
+}
+
+nav {
+  grid-area: nav;
+  background-color: aqua;
+}
+
+nav button {
+  width: 100%;
+}
