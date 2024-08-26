@@ -5,6 +5,11 @@ import { Link, Outlet } from "react-router-dom";
 function App() {
   const [articleCount, setArticleCount] = useState(0);
 
+  const handleCartUpdate = (e) => {
+    const num = Number(e);
+    setArticleCount(articleCount + num);
+  };
+
   return (
     <>
       <header>
@@ -20,7 +25,7 @@ function App() {
         </nav>
       </header>
       <main>
-        <Outlet />
+        <Outlet context={handleCartUpdate} />
       </main>
       <footer></footer>
     </>

@@ -1,24 +1,31 @@
 import { useEffect, useState } from "react";
 import "./Article.css";
+import { useOutletContext } from "react-router-dom";
 
 const Article = ({ id }) => {
   const [imageUrl, setImageUrl] = useState("");
   const [description, setDescription] = useState("");
   const [num, setNum] = useState(1);
+  const myFunk = useOutletContext();
 
-  const getArticleInfos = async (id) => {
-    const response = await fetch(`https://fakestoreapi.com/products/${id}`);
-    const jsonRes = await response.json();
-    setImageUrl(jsonRes.image);
-    setDescription(jsonRes.description);
+  useEffect(() => {
+    const getArticleInfos = async (id) => {
+      const response = await fetch(`https://fakestoreapi.com/products/${id}`);
+      const jsonRes = await response.json();
+      setImageUrl(jsonRes.image);
+      setDescription(jsonRes.description);
+    };
+    getArticleInfos(id), [id];
+  });
+
+  const handleCartChange = () => {
+    myFunk(num);
   };
 
   const handleChange = (e) => {
     const inputValue = e.target.value;
     setNum(inputValue);
-    console.log(inputValue);
   };
-  getArticleInfos(id);
 
   return (
     <div className="card">
@@ -31,7 +38,7 @@ const Article = ({ id }) => {
         value={num}
         onChange={handleChange}
       />
-      <button>Add To Cart 🛒</button>
+      <button onClick={handleCartChange}>Add To Cart 🛒</button>
     </div>
   );
 };

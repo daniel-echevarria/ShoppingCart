@@ -3,7 +3,7 @@ import "./Shop.css";
 
 const articleIds = [1, 2, 3, 4, 5];
 
-const Shop = () => {
+const Shop = ({ cart }) => {
   const articleList = articleIds.map((id) => <Article key={id} id={id} />);
   return (
     <>
