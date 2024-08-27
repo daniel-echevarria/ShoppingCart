@@ -12,8 +12,8 @@ const Article = ({ id }) => {
   useEffect(() => {
     const getArticleInfos = async (id) => {
       const response = await fetch(`https://fakestoreapi.com/products/${id}`);
+      console.log(response.status);
       const jsonRes = await response.json();
-      console.log(jsonRes);
       setImageUrl(jsonRes.image);
       setTitle(jsonRes.title);
       setPrice(jsonRes.price);

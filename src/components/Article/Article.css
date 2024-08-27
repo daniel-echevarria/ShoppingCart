@@ -25,7 +25,8 @@
 
 .card .title {
   font-weight: bold;
-  max-width: 500px;
+  max-width: 300px;
+  text-wrap: wrap;
   /* font-size: ; */
 }
 
